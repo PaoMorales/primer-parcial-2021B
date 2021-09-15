@@ -1,5 +1,6 @@
 package edu.uaslp.examen;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookCollection {
@@ -8,6 +9,7 @@ public class BookCollection {
 
     public BookCollection(String name) {
         this.name = name;
+        books = new ArrayList<>();
     }
 
     public String getName() {
@@ -23,7 +25,12 @@ public class BookCollection {
     }
 
     public int getStars(){
-        return stars();
+        int average = 0;
+
+        for(Book book: books) {
+            average += book.getStars();
+        }
+        return average / books.size();
     }
 
 }
